@@ -37,8 +37,12 @@ fi;
 
 echo ${INPUT_PASSWORD} | docker login -u ${INPUT_USERNAME} --password-stdin ${INPUT_REGISTRY}
 
-DOCKERNAME="${INPUT_NAME}:${BRANCH}"
 BUILDPARAMS=""
+
+DOCKERNAME = "${INPUT_REGISTRY}/${DOCKER_NAME}"
+if [ ! -z "${INPUT_REGISTRY}" ]; then
+  DOCKERNAME = "${INPUT_REGISTRY}/${DOCKERNAME}"
+fi
 
 if [ ! -z "${INPUT_DOCKERFILE}" ]; then
   BUILDPARAMS="$BUILDPARAMS -f ${INPUT_DOCKERFILE}"
@@ -52,10 +56,6 @@ fi
 
 if [ ! -z "${INPUT_WORKDIR}" ]; then
   cd ${INPUT_WORKDIR}
-fi
-
-if [ ! -z "${INPUT_REGISTRY}" ]; then
-  DOCKER_NAME = "${INPUT_REGISTRY}/${DOCKER_NAME}"
 fi
 
 if [ "${INPUT_SNAPSHOT}" = "true" ]; then
