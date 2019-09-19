@@ -171,19 +171,6 @@ Called mock with: logout"
   [ "$output" = "$expected" ]
 }
 
-@test "it performs a login to another registry" {
-  export INPUT_REGISTRY='https://myRegistry'
-
-  run /entrypoint.sh
-
-  local expected="Called mock with: login -u USERNAME --password-stdin https://myRegistry
-Called mock with: build -t my/repository:latest .
-Called mock with: push my/repository:latest
-Called mock with: logout"
-  echo $output
-  [ "$output" = "$expected" ]
-}
-
 @test "it caches the image from a former build" {
   export INPUT_CACHE='true'
 
