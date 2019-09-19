@@ -40,9 +40,9 @@ echo ${INPUT_PASSWORD} | docker login -u ${INPUT_USERNAME} --password-stdin ${IN
 BUILDPARAMS=""
 
 DOCKERNAME = "${INPUT_REGISTRY}/${DOCKER_NAME}"
-if [ ! -z "${INPUT_REGISTRY}" ]; then
-  DOCKERNAME = "${INPUT_REGISTRY}/${DOCKERNAME}"
-fi
+#if [ ! -z "${INPUT_REGISTRY}" ]; then
+#  DOCKERNAME = "${INPUT_REGISTRY}/${DOCKERNAME}"
+#fi
 
 if [ ! -z "${INPUT_DOCKERFILE}" ]; then
   BUILDPARAMS="$BUILDPARAMS -f ${INPUT_DOCKERFILE}"
