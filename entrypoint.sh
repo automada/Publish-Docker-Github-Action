@@ -50,8 +50,12 @@ if [ ! -z "${INPUT_CACHE}" ]; then
   fi
 fi
 
-if [ ! -z "${INPUT_CD}" ]; then
-  cd ${INPUT_CD}
+if [ ! -z "${INPUT_WORKDIR}" ]; then
+  cd ${INPUT_WORKDIR}
+fi
+
+if [ ! -z "${INPUT_REGISTRY}" ]; then
+  DOCKER_NAME = "${INPUT_REGISTRY}/${DOCKER_NAME}"
 fi
 
 if [ "${INPUT_SNAPSHOT}" = "true" ]; then
