@@ -50,6 +50,10 @@ if [ ! -z "${INPUT_CACHE}" ]; then
   fi
 fi
 
+if [ ! -z "${INPUT_CD}" ]; then
+  cd ${INPUT_CD}
+fi
+
 if [ "${INPUT_SNAPSHOT}" = "true" ]; then
   timestamp=`date +%Y%m%d%H%M%S`
   shortSha=$(echo "${GITHUB_SHA}" | cut -c1-6)
