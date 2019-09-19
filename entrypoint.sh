@@ -54,10 +54,6 @@ if [ ! -z "${INPUT_WORKDIR}" ]; then
   cd ${INPUT_WORKDIR}
 fi
 
-if [ ! -z "${INPUT_REGISTRY}" ]; then
-  $DOCKERNAME="${INPUT_REGISTRY}/${DOCKERNAME}"
-fi
-
 if [ "${INPUT_SNAPSHOT}" = "true" ]; then
   timestamp=`date +%Y%m%d%H%M%S`
   shortSha=$(echo "${GITHUB_SHA}" | cut -c1-6)
