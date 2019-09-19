@@ -55,7 +55,7 @@ if [ ! -z "${INPUT_WORKDIR}" ]; then
 fi
 
 if [ ! -z "${INPUT_REGISTRY}" ]; then
-  $DOCKERNAME = "${INPUT_REGISTRY}/${DOCKERNAME}"
+  $DOCKERNAME="${INPUT_REGISTRY}/${DOCKERNAME}"
 fi
 
 if [ "${INPUT_SNAPSHOT}" = "true" ]; then
