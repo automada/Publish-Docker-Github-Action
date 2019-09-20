@@ -1,6 +1,12 @@
 #!/bin/sh
 set -e
 
+echo ------------------------------
+echo *Workdir*
+pwd
+ls -l
+echo ------------------------------
+
 if [ -z "${INPUT_NAME}" ]; then
   echo "Unable to find the repository name. Did you set with.name?"
   exit 1
