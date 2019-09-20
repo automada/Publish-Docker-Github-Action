@@ -1,12 +1,6 @@
 #!/bin/sh
 set -e
 
-echo "------------------------------"
-echo "*Workdir*"
-pwd
-ls -l
-echo "------------------------------"
-
 if [ -z "${INPUT_NAME}" ]; then
   echo "Unable to find the repository name. Did you set with.name?"
   exit 1
@@ -59,6 +53,10 @@ fi
 if [ ! -z "${INPUT_WORKDIR}" ]; then
   cd ${INPUT_WORKDIR}
 fi
+
+echo "Workdir"
+pwd
+ls -l
 
 if [ "${INPUT_SNAPSHOT}" = "true" ]; then
   timestamp=`date +%Y%m%d%H%M%S`
