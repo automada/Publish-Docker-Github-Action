@@ -54,6 +54,8 @@ if [ ! -z "${INPUT_WORKDIR}" ]; then
   cd ${INPUT_WORKDIR}
 fi
 
+echo "GOPATH"
+echo ${WORKDIR}
 echo "Workdir"
 pwd
 ls -l
